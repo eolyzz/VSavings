@@ -41,87 +41,97 @@ class _WSBodyState extends State<WSBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 100,
+                height: 300,
                 width: double.infinity,
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      "You've saved",
-                      style: GoogleFonts.montserrat(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: fontColor),
-                    ),
-                    SizedBox(
-                      height: 8 * heightRatio,
-                    ),
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: const [
-                            WalletBalance(
-                              amount: 3600,
-                            ),
-                          ],
+                        Text(
+                          "Available Balance",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: fontColor),
                         ),
+                        SizedBox(
+                          height: 8 * heightRatio,
+                        ),
+                        WalletBalance(
+                          amount: "3600",
+                        ),
+                        SizedBox(
+                          height: 15 * heightRatio,
+                        ),
+                        Text(
+                          "You've saved",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: fontColor),
+                        ),
+                        SizedBox(
+                          height: 8 * heightRatio,
+                        ),
+                        const SavingsBalance(amount: "2,400,000"),
                       ],
-                    ),
-                    SizedBox(
-                      width: 30 * widthRatio,
                     ),
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Container(
-                      width: 145,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            "Add Money",
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'OpenSans',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Container(
-                      width: 145,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            "Take Loan",
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'OpenSans',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/addMoney');
+              },
+              child: Container(
+                width: 145,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "Add Money",
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'OpenSans',
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Container(
+                width: 145,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const Text(
+                      "Take Loan",
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'OpenSans',
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -139,7 +149,7 @@ class WalletBalance extends StatelessWidget {
     required this.amount,
   }) : super(key: key);
 
-  final int amount;
+  final String amount;
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +160,31 @@ class WalletBalance extends StatelessWidget {
           "${getCurrency()}$amount",
           style: GoogleFonts.montserrat(
             fontSize: 30,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SavingsBalance extends StatelessWidget {
+  const SavingsBalance({
+    Key? key,
+    required this.amount,
+  }) : super(key: key);
+
+  final String amount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "${getCurrency()}$amount",
+          style: GoogleFonts.montserrat(
+            fontSize: 29,
             fontWeight: FontWeight.w600,
           ),
         ),

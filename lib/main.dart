@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gt2022/screens/mainDisplay.dart';
 import 'package:gt2022/screens/screens.dart';
+import 'package:gt2022/screens/Dashboard/addMoney.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/phoneVerification': (context) => const PhoneVerificationScreen(),
         '/login': (context) => const LoginScreen(),
         '/dashboard': (context) => const mainDisplay(),
+        '/addMoney': (context) => const addMoney(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

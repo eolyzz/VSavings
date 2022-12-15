@@ -1,58 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gt2022/constants.dart';
+import 'package:gt2022/customWidgets.dart';
 import 'package:intl/intl.dart';
 
-class TransactionHistoryBody extends StatefulWidget {
-  const TransactionHistoryBody({
-    Key? key,
-  }) : super(key: key);
+class addMoney extends StatelessWidget {
+  const addMoney({super.key});
 
   @override
-  State<TransactionHistoryBody> createState() => _TransactionHistoryBodyState();
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: CustomAppBar(
+        title: "Add Money",
+      ),
+      body: AMBody(),
+    );
+  }
 }
 
-class _TransactionHistoryBodyState extends State<TransactionHistoryBody> {
+class AMBody extends StatefulWidget {
+  const AMBody({super.key});
+
+  @override
+  State<AMBody> createState() => _AMBodyState();
+}
+
+class _AMBodyState extends State<AMBody> {
   @override
   Widget build(BuildContext context) {
     double widthRatio = MediaQuery.of(context).size.width / 375;
     double heightRatio = (MediaQuery.of(context).size.height / 812);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 16, left: 24),
-          child: Text(
-            "Transaction History",
-            style: GoogleFonts.montserrat(
-                fontSize: 16, fontWeight: FontWeight.w600, color: primaryBlue),
+        Card(
+          shadowColor: Color.fromRGBO(0, 0, 0, 0.14),
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-        ),
-        SizedBox(
-          height: heightRatio * 13,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Card(
-            shadowColor: Color.fromRGBO(0, 0, 0, 0.14),
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+          child: Padding(
+            padding: const EdgeInsets.only(),
             child: Column(
               children: [
-                PaymentDetails(
-                  widthRatio: widthRatio,
-                  logo: "assets/zenithbank.png",
-                  paymentName: "For June Savings",
-                  daysAgo: 5,
-                  amount: "600,000",
-                ),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: const Color.fromRGBO(0, 0, 0, 0.1),
+                SizedBox(
+                  height: heightRatio * 10,
                 ),
                 PaymentDetails(
                   widthRatio: widthRatio,
@@ -71,7 +63,7 @@ class _TransactionHistoryBodyState extends State<TransactionHistoryBody> {
                   logo: "assets/zenithbank.png",
                   paymentName: "Loan",
                   daysAgo: 30,
-                  amount: "3,000,000",
+                  amount: "1,200,000",
                 ),
                 Container(
                   height: 1,
@@ -82,37 +74,8 @@ class _TransactionHistoryBodyState extends State<TransactionHistoryBody> {
                     widthRatio: widthRatio,
                     logo: "assets/uba.png",
                     paymentName: "For March Savings",
-                    daysAgo: 30,
-                    amount: "600,000"),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Color.fromRGBO(0, 0, 0, 0.1),
-                ),
-                PaymentDetails(
-                  widthRatio: widthRatio,
-                  logo: "assets/zenithbank.png",
-                  paymentName: "For February Savings",
-                  daysAgo: 30,
-                  amount: "600,000",
-                ),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Color.fromRGBO(0, 0, 0, 0.1),
-                ),
-                PaymentDetails(
-                  widthRatio: widthRatio,
-                  logo: "assets/zenithbank.png",
-                  paymentName: "For January Savings",
-                  daysAgo: 30,
-                  amount: "600,000",
-                ),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Color.fromRGBO(0, 0, 0, 0.1),
-                ),
+                    daysAgo: 2,
+                    amount: "600,000")
               ],
             ),
           ),

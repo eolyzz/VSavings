@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gt2022/screens/dashboard.dart';
+import 'package:gt2022/screens/screens.dart';
 
 class mainDisplay extends StatefulWidget {
   const mainDisplay({Key? key}) : super(key: key);
