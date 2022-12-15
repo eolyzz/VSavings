@@ -51,10 +51,9 @@ class _DSBodyState extends State<DSBody> {
                 children: [
                   SavingPlan(
                     widthRatio: widthRatio,
-                    image: "assets/zenithbank.png",
                     text: 'Saving Plan',
                     savingPlan: 200,
-                    logo: "assets/zenithbank.png",
+                    logo: "assets/newPlan.png",
                   ),
                 ],
               ),
@@ -72,14 +71,13 @@ class SavingPlan extends StatelessWidget {
     Key? key,
     required this.widthRatio,
     required this.logo,
-    required this.image,
     required this.text,
     required this.savingPlan,
   }) : super(key: key);
 
   final double widthRatio;
   final String logo;
-  final String image;
+
   final String text;
   final int savingPlan;
 
@@ -127,25 +125,6 @@ class SavingPlan extends StatelessWidget {
           ),
         ],
       ),
-    );
-
-    Column(
-      children: [
-        Image.asset(image),
-        const SizedBox(
-          height: 8,
-        ),
-        Text(
-          text,
-          style: GoogleFonts.montserrat(
-              fontSize: 12, fontWeight: FontWeight.w400, color: fontColor),
-        ),
-        Text(
-          "$savingPlan /per month",
-          style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w400, fontSize: 12, color: fontColor),
-        )
-      ],
     );
   }
 }
