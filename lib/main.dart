@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:gt2022/screens/mainDisplay.dart';
-import 'package:gt2022/screens/screens.dart';
-import 'package:gt2022/screens/Dashboard/addMoney.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:gt2022/utilities/constants.dart';
+import 'package:gt2022/views/screens/authorization_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const RegistrationScreen(),
-        '/phoneVerification': (context) => const PhoneVerificationScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/dashboard': (context) => const mainDisplay(),
-        '/addMoney': (context) => const addMoney(),
-      },
+    return GetMaterialApp(
+      title: 'Kuda App Clone',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blue,
+        primaryColor: primaryColor,
+        accentColor: accentColor,
+        iconTheme: IconThemeData(color: iconColor),
+        fontFamily: GoogleFonts.mulish().fontFamily,
+        textTheme: GoogleFonts.mulishTextTheme(),
+      ),
+      home: AuthorizationScreen(),
     );
   }
 }
+
+// muli kuda font #40196d
+

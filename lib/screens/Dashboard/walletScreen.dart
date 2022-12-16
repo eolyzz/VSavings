@@ -41,15 +41,15 @@ class _WSBodyState extends State<WSBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 300,
+                height: 320,
                 width: double.infinity,
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Available Balance",
@@ -62,22 +62,78 @@ class _WSBodyState extends State<WSBody> {
                           height: 8 * heightRatio,
                         ),
                         WalletBalance(
-                          amount: "3600",
+                          amount: "600,000",
                         ),
-                        SizedBox(
-                          height: 15 * heightRatio,
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10 * heightRatio,
+                    ),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "You've saved",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: fontColor),
+                            ),
+                            const SavingsBalance(amount: "2,400,000"),
+                          ],
                         ),
-                        Text(
-                          "You've saved",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                              color: fontColor),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8 * heightRatio,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/addMoney');
+                          },
+                          child: Container(
+                            width: 145,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  "Add Money",
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'OpenSans',
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 8 * heightRatio,
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Container(
+                            width: 145,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                const Text(
+                                  "Take Loan",
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'OpenSans',
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        const SavingsBalance(amount: "2,400,000"),
                       ],
                     ),
                   ],
@@ -85,53 +141,6 @@ class _WSBodyState extends State<WSBody> {
               ),
             ],
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/addMoney');
-              },
-              child: Container(
-                width: 145,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Add Money",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'OpenSans',
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Container(
-                width: 145,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const Text(
-                      "Take Loan",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'OpenSans',
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
         ),
       ],
     );
@@ -158,9 +167,10 @@ class WalletBalance extends StatelessWidget {
       children: [
         Text(
           "${getCurrency()}$amount",
-          style: GoogleFonts.montserrat(
-            fontSize: 30,
-            fontWeight: FontWeight.w600,
+          style: GoogleFonts.mulish(
+            color: Colors.white,
+            fontSize: 40,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ],

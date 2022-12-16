@@ -21,17 +21,17 @@ class _TransactionHistoryBodyState extends State<TransactionHistoryBody> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 16, left: 24),
-          child: Text(
-            "Transaction History",
-            style: GoogleFonts.montserrat(
-                fontSize: 16, fontWeight: FontWeight.w600, color: primaryBlue),
-          ),
-        ),
-        SizedBox(
-          height: heightRatio * 13,
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.only(top: 16, left: 24),
+        //   child: Text(
+        //     "Transaction History",
+        //     style: GoogleFonts.montserrat(
+        //         fontSize: 16, fontWeight: FontWeight.w600, color: primaryBlue),
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: heightRatio * 13,
+        // ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Card(
@@ -42,6 +42,18 @@ class _TransactionHistoryBodyState extends State<TransactionHistoryBody> {
             ),
             child: Column(
               children: [
+                PaymentDetails(
+                  widthRatio: widthRatio,
+                  logo: "assets/zenithbank.png",
+                  paymentName: "For July Savings",
+                  daysAgo: 5,
+                  amount: "600,000",
+                ),
+                Container(
+                  height: 1,
+                  width: double.infinity,
+                  color: const Color.fromRGBO(0, 0, 0, 0.1),
+                ),
                 PaymentDetails(
                   widthRatio: widthRatio,
                   logo: "assets/zenithbank.png",
